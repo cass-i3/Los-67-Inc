@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Products ~ Los 67 Inc.</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="icon" type="img/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="alertBox">
+      <h2 class="thick-text" id="alert-title"></h2>
+      <div></div>
+      <h2 class="caps-text" id="alert-desc"></h2>
+      <div></div>
+      <button class="wide-text" onclick="purchase()">BUY</button>
+      <button class="wide-text" onclick="closeAlert()">CLOSE</button>
+    </div>
+
+    <div id="navbar">
+      <h2 class="wide-text">
+        Los
+        <img
+          src="./logo.png"
+          style="height: 30px; width: auto; position: absolute; margin-top: 0px"
+        />&nbsp;&nbsp;&nbsp;&nbsp; Inc.
+      </h2>
+      <a href="./index.html">Home</a>
+      <a style="color: yellow" href="./products.html">Products &#x2B88;</a>
+      <a href="./about.html">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div id="main">
+      <div id="canvas-container">
+        <h1 class="thick-text">Products</h1>
+      </div>
+      <div class="section product-section" onclick="reallyPresentThem('6')">
+        <h1 class="product thick-text">6</h1>
+        <h2 class="pinkAndBlue wide-text">A SIX</h2>
+        <p class="caps-text">
+          A high-quality six (6) manufactured by Los 67 Inc., the leading
+          company in manufacturing sixes and sevens.
+        </p>
+      </div>
+      <div class="section2 product-section" onclick="reallyPresentThem('7')">
+        <h1 class="product thick-text">7</h1>
+        <h2 class="pinkAndBlue wide-text">A SEVEN</h2>
+        <p class="caps-text">
+          A high quality seven (7) manufactured by Los 67 Inc., the leading
+          company in manufacturing sixes and sevens.
+        </p>
+      </div>
+    </div>
+
+    <script src="./scripts/products-canvas-art.js"></script>
+    <script src="./scripts/p5-classes/Bouncer.js"></script>
+
+    <script src="./scripts/all.js"></script>
+    <script>
+      let currentProduct;
+
+      const reallyPresentThem = (product) => {
+        if (product == "6") {
+          createAlert(
+            "Product: 6",
+            `<span class="product thick-text">6</span><br />A high-quality six manufactured by Los 67 Inc., the leading company in manufacturing sixes and sevens.<br /><span style="color: yellow;">Price: Kiran Hayden's address</span>`,
+          );
+          currentProduct = "6";
+        } else {
+          createAlert(
+            "Product: 6",
+            `<span class="product thick-text">7</span><br />A high-quality seven manufactured by Los 67 Inc., the leading company in manufacturing sixes and sevens.<br /><span style="color: yellow;">Price: Kiran Hayden's address</span>`,
+          );
+          currentProduct = "7";
+        }
+      };
+    </script>
+  </body>
+</html>

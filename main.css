@@ -28,7 +28,7 @@ a {
   align-items: center;
   position: fixed;
   z-index: 999;
-  
+
   mix-blend-mode: difference;
 }
 
@@ -61,7 +61,7 @@ a {
   font-weight: 400;
   font-style: normal;
   font-size: 2em;
-  
+
   margin-right: 100px;
 }
 
@@ -78,7 +78,9 @@ a {
   width: 100%;
   height: 400px;
   background-color: white;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+
+  margin-bottom: 4px;
 }
 
 #canvas-container h1 {
@@ -87,10 +89,10 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  
+
   padding: 0;
   margin: 0;
-  
+
   mix-blend-mode: difference;
 }
 
@@ -147,10 +149,10 @@ footer {
   align-items: center;
   z-index: 1000;
   text-align: center;
-  
+
   flex-wrap: wrap;
   */
-  
+
   position: fixed;
   top: 50px;
   left: 200px;
@@ -160,11 +162,11 @@ footer {
   text-align: center;
   z-index: 1000;
   max-height: 500px;
-  
+
   background-color: rgba(13, 12, 12, 0.9);
   border: 1px solid whitesmoke;
   border-radius: 5px;
-  
+
   display: none;
 }
 
@@ -188,4 +190,45 @@ button {
   background-color: yellow;
   color: #0d0c0c;
   border: 2px solid #0d0c0c;
+}
+
+.pinkAndBlue {
+  animation: pinkToBlue 20s linear infinite;
+}
+
+@keyframes pinkToBlue {
+  0% {
+    color: var(--pink);
+  }
+
+  50% {
+    color: var(--blue);
+  }
+
+  100% {
+    color: var(--pink);
+  }
+}
+
+.product {
+  font-size: 8rem;
+  animation: pinkToBlue 6s linear infinite;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.product-section {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.product-section:hover {
+  color: black;
+  background-color: yellow;
+  border-left: 6px double black;
+  border-right: 6px double black;
 }

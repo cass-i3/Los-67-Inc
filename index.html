@@ -16,12 +16,12 @@
       <div></div>
       <h2 class="caps-text" id="alert-desc"></h2>
       <div></div>
-      <button class="wide-text" onclick="closeAlert()">OKAY</button> <button class="wide-text" onclick="dontShowAgain()">Don't Show This Again</button>
+      <button class="wide-text" onclick="closeAlert()">OKAY</button> 
     </div>
     
     <div id='navbar'>
       <h2 class="wide-text">Los <img src="./logo.png" style="height: 30px; width: auto; position: absolute; margin-top: 0px">&nbsp;&nbsp;&nbsp;&nbsp; Inc.</h2>
-      <a href="./index.html">Home</a>
+      <a style="color: yellow;" href="./index.html">Home &#x2B88;</a>
       <a href="./products.html">Products</a>
       <a href="./about.html">About Us</a>
       <a href="#contact">Contact</a>
@@ -34,18 +34,18 @@
       <div class="sections">
         <div class="section">
           <h2 class="pink"><span class="caps-text">An emphasis on</span> <span class="thick-text">QUALITY</span></h2>
-          <p class="caps-text">At <span class="wide-text">Los 67 Inc.</span>, we pride ourselves in the quality of our sixes and sevens. Since October 7th, 2025, our company has been manufacturing the best quality sixes and sevens from any company ever<sup><a href="#cit1">[1]</a></sup>.</p>
+          <p class="caps-text">At <span class="wide-text pinkAndBlue">Los 67 Inc.</span>, we pride ourselves in the quality of our sixes and sevens. Since October 7th, 2025, our company has been manufacturing the best quality sixes and sevens from any company ever<sup><a href="#cit1">[1]</a></sup>.</p>
         </div>
         <div id="canvas-container-1">
           
         </div>
         <div class="section2">
           <h2 class="blue"><span class="caps-text">Our products are</span> <span class="thick-text">BASICALLY FREE</span></h2>
-          <p class="caps-text">Never has it been so <span class="wide-text">easy to buy</span> a six or a seven. There's no money to it; just hand over Kiran Hayden's address! You probably know it if you are on this website. Just buy a six or a seven with it, free of charge<sup><a href="#cit2">[2]</a></sup>.</p>
+          <p class="caps-text">Never has it been so <span class="wide-text pinkAndBlue">easy to buy</span> a six or a seven. There's no money to it; just hand over Kiran Hayden's address! You probably know it if you are on this website. Just buy a six or a seven with it, free of charge<sup><a href="#cit2">[2]</a></sup>.</p>
         </div>
       </div>
     </div>
-    <footer class="caps-text"><small>
+    <footer id="end" class="caps-text"><small>
       Citations:
       <br />
       <span id="cit1">[1] Completely BSed this one</span>
@@ -53,39 +53,18 @@
       <span id="cit2">[2] Free of charge in a monetary sense</span>
       </small></footer>
     <script src="./scripts/home-canvas-art.js"></script>
+    
+    <script src="./scripts/all.js"></script>
     <script>
-      const navbar = document.querySelector('#navbar');
-      const main = document.querySelector('#main');
-      
-      navbar.style.height = window.innerHeight * 0.1 + "px";
-      
-      main.style.height = window.innerHeight - navbar.clientHeight + "px";
-      
-      const createAlert = (title, message) => {
-        document.querySelector('#alert-title').innerHTML = title;
-        document.querySelector('#alert-desc').innerHTML = message;
-        $('#alertBox').fadeIn();
-      }
-      
-      const closeAlert = () => {
-        $('#alertBox').fadeOut();
-      }
-      
       const dontShowAgain = () => {
         localStorage.setItem('noWelcomeMessage', 'true');
         closeAlert();
       }
       
-      window.addEventListener('resize', () => {
-        navbar.style.height = window.innerHeight * 0.1 + "px";
-        
-        main.style.height = window.innerHeight - navbar.clientHeight + "px";
-      });
-      
       if (localStorage.getItem('noWelcomeMessage') === 'true') {
         
       } else {
-        createAlert('This Site is Built to Be Used on Desktop', '<img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMjVkbG1uOXQwOXo3eDZqbXBiOHpwbzAyenRrNHgyYjRtYTN4bW54dCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WFZvB7VIXBgiz3oDXE/giphy.gif" style="width: 100px; height: auto"><img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyM3pjNzV6amo4Zm53YXVybnA3NTNsOW05a2c0eDNrZ2dhMTg1Z2gxeiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/YckWAcjkSZ66d5P6Fh/giphy.gif" style="width: 100px; height: auto"><br />Viewing on desktop is highly recommended for a good experience!')
+        createAlert('This Site is Built to Be Used on Desktop', '<img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMjVkbG1uOXQwOXo3eDZqbXBiOHpwbzAyenRrNHgyYjRtYTN4bW54dCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WFZvB7VIXBgiz3oDXE/giphy.gif" style="width: 100px; height: auto"><img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyM3pjNzV6amo4Zm53YXVybnA3NTNsOW05a2c0eDNrZ2dhMTg1Z2gxeiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/YckWAcjkSZ66d5P6Fh/giphy.gif" style="width: 100px; height: auto"><br />Viewing on desktop is highly recommended for a good experience!', true)
       }
     </script>
   </body>

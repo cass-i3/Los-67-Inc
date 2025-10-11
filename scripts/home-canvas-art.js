@@ -27,14 +27,14 @@ class Thingimajig {
     this.x1 = this.x + w;
     this.y1 = this.y + h;
     this.x2 = this.x - w;
-    this.y2 = (this.y - h + (h * 4 / 3)) % height;
+    this.y2 = (this.y - h + (h * 4) / 3) % height;
   }
 
   getColor() {
     if (this.index % 2 == 0) {
-      return '#e291e3';
+      return "#e291e3";
     } else {
-      return '#47c9dc';
+      return "#47c9dc";
     }
   }
 
@@ -46,9 +46,9 @@ class Thingimajig {
     fill(this.col);
     translate(this.x, this.y);
     rotate(this.angle);
-    translate(0, 0)
+    translate(0, 0);
     triangle(this.x, this.y, this.x1, this.y1, this.x2, this.y2);
-    this.x = (this.x > width + w) ? 0 - w : this.x + 0.25;
+    this.x = this.x > width + w ? 0 - w : this.x + 0.25;
     this.angle += 1;
     pop();
   }
@@ -56,11 +56,11 @@ class Thingimajig {
 
 function setup() {
   const canvas = createCanvas(windowWidth, 400);
-  console.log('dih')
+  console.log("dih");
   let index = 0;
-  canvas.parent('canvas-container');
+  canvas.parent("canvas-container");
 
-  background('#0d0c0c')
+  background("#0d0c0c");
 
   angleMode(DEGREES);
 
@@ -75,13 +75,13 @@ function setup() {
 }
 
 function draw() {
-  background(12, 13, 13, 30)
+  background(12, 13, 13, 30);
 
   shapes.forEach((s) => {
     s.tick();
-  })
+  });
 
   //ball.tick()
 }
 
-window.addEventListener('resize', setup())
+window.addEventListener("resize", setup());
