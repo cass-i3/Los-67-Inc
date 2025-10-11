@@ -84,4 +84,6 @@ function draw() {
   //ball.tick()
 }
 
-window.addEventListener('resize', setup())
+window.addEventListener('resize', () => {
+  resizeCanvas(windowWidth, 400);
+})
