@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout ~ Los 67 Inc.</title>
+
+    <link rel="icon" type="img/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../main.css">
+
+    <style>
+      #main {
+        text-align: center;
+        border-left: 6px double whitesmoke;
+        border-right: 6px double whitesmoke;
+        margin-top: 0;
+        height: 100%;
+      }
+
+      #main h1 {
+        margin-top: 0;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      button {
+        border-radius: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #0d0c0c;
+      }
+
+      input {
+        border-radius: 5px;
+        background-color: #0d0c0c;
+        width: 300px;
+        height: 20px;
+        margin-bottom: 10px;
+      }
+
+      button, input {
+        border: 1px solid whitesmoke;
+      }
+
+      * {
+        color: whitesmoke;
+      }
+
+      .product {
+        font-size: 17em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <h1 class="thick-text pinkAndBlue">CHECKOUT</h1>
+      <p class="caps-text" id="itemDisplay"></p>
+      <p class="thick-text">You are buying a</p><br />
+      <p class="thick-text product" id="itemArt"></p>
+      <input class="thick-text" id="name" placeholder="Your First and Last Name">
+      <br />
+      <input class="thick-text" id="address" placeholder="Kiran Hayden's Address">
+      <br />
+      <button class="wide-text" onclick="submit()">Done</button>
+      <br />
+      <p>&nbsp;</p>
+    </div>
+
+    <script>  
+      const item = localStorage.getItem('item');
+      const itemDisplay = document.querySelector('#itemDisplay');
+
+      itemDisplay.innerText = `You are purchasing one (1) ${item}. Please input your name and payment method below.`;
+      itemArt.innerText = item;
+
+      window.addEventListener('load', () => {
+        document.querySelector('#main').style.height = window.innerHeight;
+      });
+
+      /*
+      const buttonThing = () => {
+        await submit();
+      }
+      */
+      
+      const submit = async () => {
+        const name = document.querySelector('#name').value;
+        const address = document.querySelector('#address').value;
+
+        const res = await fetch('/send-purchase-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, address, item })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          alert('Email sent! Preview: ' + data.previewUrl);
+        } else {
+          alert('Failed to send email: ' + data.error);
+        }
+      };
+    </script>
+  </body>
+</html>

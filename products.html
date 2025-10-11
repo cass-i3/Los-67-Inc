@@ -9,6 +9,11 @@
 
     <link rel="icon" type="img/x-icon" href="./favicon.ico" />
     <link rel="stylesheet" href="main.css" />
+    <style>
+      #main {
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
     <div id="alertBox">
@@ -78,6 +83,16 @@
           currentProduct = "7";
         }
       };
+
+      const purchase = () => {
+        if (currentProduct == 6) {
+          localStorage.setItem("item", "6");
+        } else if (currentProduct == 7) {
+          localStorage.setItem("item", "7");
+        }
+
+        window.location.href = "./public/checkout.html"
+      }
     </script>
   </body>
 </html>
