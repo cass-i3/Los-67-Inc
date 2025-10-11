@@ -22,14 +22,14 @@ class Thingimajig {
     this.index = index;
     this.col = this.getColor();
   }
-  
+
   findNewValues() {
     this.x1 = this.x + w;
     this.y1 = this.y + h;
     this.x2 = this.x - w;
     this.y2 = (this.y - h + (h * 4 / 3)) % height;
   }
-  
+
   getColor() {
     if (this.index % 2 == 0) {
       return '#e291e3';
@@ -37,7 +37,7 @@ class Thingimajig {
       return '#47c9dc';
     }
   }
-  
+
   tick() {
     push();
     this.findNewValues();
@@ -59,13 +59,13 @@ function setup() {
   console.log('dih')
   let index = 0;
   canvas.parent('canvas-container');
-  
+
   background('#0d0c0c')
-  
+
   angleMode(DEGREES);
-  
+
   //ball = new Bouncer(width / 4, height / 2, ((width / 3) + (height / 3)) / 10, true, ((width / 2) + (height / 2)) / 100)
-  
+
   for (let x = 0; x < width + w + xoffset; x += w + xoffset) {
     for (let y = 0; y < height; y += h + yoffset) {
       shapes.push(new Thingimajig(x, y, index));
@@ -75,15 +75,13 @@ function setup() {
 }
 
 function draw() {
-  background(12, 13, 13, 0.999)
-  
+  background(12, 13, 13, 30)
+
   shapes.forEach((s) => {
     s.tick();
   })
-  
+
   //ball.tick()
 }
 
-window.addEventListener('resize', () => {
-  resizeCanvas(windowWidth, 400);
-})
+window.addEventListener('resize', setup())
