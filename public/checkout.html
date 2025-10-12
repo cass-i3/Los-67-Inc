@@ -91,7 +91,7 @@
         const name = document.querySelector('#name').value;
         const address = document.querySelector('#address').value;
 
-        const res = await fetch('localhost:5000/send-purchase-email', {
+        const res = await fetch('/send-purchase-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
