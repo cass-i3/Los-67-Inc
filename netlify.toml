@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/send-purchase-email"
+  to = "https://a9ff81a2-eeac-4ddb-a902-fe9fdb94fc3b-00-2qkygyf3g6io7.kirk.replit.dev/send-purchase-email"
+  status = 200
+  force = true
