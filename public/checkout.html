@@ -101,9 +101,9 @@
 
         const data = await res.json();
         if (data.success) {
-          alert('Email sent! Preview: ' + data.previewUrl);
+          console.log('Email sent!');
         } else {
-          alert('Failed to send email: ' + data.error);
+          console.log('Failed to send email');
         }
       };
     </script>
