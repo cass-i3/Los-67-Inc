@@ -20,15 +20,13 @@ app.use((req, res, next) => {
   next();
 })
 
-// Serve static files from 'public' directory
-app.use(express.static(path.join(__dirname, '..')));
-
 // Parse JSON in request body
 app.use(bodyParser.json());
 
 // POST route to send purchase email
 app.post('/send-purchase-email', async (req, res) => {
   const purchaseData = req.body;
+  console.log('📩 Received POST:', req.body);
 
   try {
     const previewUrl = await purchaseMessage(purchaseData);
@@ -37,6 +35,9 @@ app.post('/send-purchase-email', async (req, res) => {
     res.status(500).json({ success: false, error: err.message });
   }
 });
+
+// Serve static files from 'public' directory
+app.use(express.static(path.join(__dirname, '..')));
 
 // Start the server
 app.listen(PORT, '0.0.0.0', () => {
