@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "scripts": {
+    "start": "node public/server.js",
+  },
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
