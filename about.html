@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Us ~ Los 67 Inc.</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <link rel="icon" type="img/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+      #main {
+        overflow-y: auto;
+      }
+
+      a span {
+        text-decoration: underline solid transparent;
+        transition: all 0.2s ease-out;
+      }
+
+      a span:hover {
+        text-decoration-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="alertBox">
+      <h2 class="thick-text" id="alert-title"></h2>
+      <div></div>
+      <h2 class="caps-text" id="alert-desc"></h2>
+      <div></div>
+      <button class="wide-text" onclick="closeAlert()">OKAY</button>
+    </div>
+    
+    <div id='navbar'>
+      <h2 class="wide-text">Los <img src="./logo.png" style="height: 30px; width: auto; position: absolute; margin-top: 0px">&nbsp;&nbsp;&nbsp;&nbsp; Inc.</h2>
+      <a href="./index.html">Home</a>
+      <a href="./products.html">Products</a>
+      <a style="color: yellow;" href="./about.html">About Us &#x2B88;</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div id="main">
+      <div id="canvas-container">
+        <h1 class="thick-text">About Us</h1>
+      </div>
+      
+      <div class="sections">
+        <div style="font-size: 1.6rem;" class="wide-section caps-text">
+          Los 67 Inc. was founded on October 7th, 2025 by <a href="./profiles/founder.html"><span style="color: yellow;" class="thick-text">Big 'ol Billy Joshington Zahmdehuleganshensengaludichausenhigglefonkledorkus McGee</span></a>. Since its establishment, Los 67 Inc. has been manufacturing the highest-quality sixes and sevens to ever be manufactured.
+        </div>
+      </div>
+    </div>
+    
+    <script src="./scripts/all.js"></script>
+    <script src="./scripts/p5-classes/Boss.js"></script>
+    <script src="./scripts/about-canvas-art.js"></script>
+  </body>
+</html>

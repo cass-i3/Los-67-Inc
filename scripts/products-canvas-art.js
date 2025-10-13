@@ -26,3 +26,9 @@ function draw() {
     balls[i].tick();
   }
 }
+
+window.addEventListener("resize", () => {
+  resizeCanvas(windowWidth, 400);
+  balls = [];
+  setup();
+});

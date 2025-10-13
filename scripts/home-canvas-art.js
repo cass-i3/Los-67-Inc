@@ -4,8 +4,6 @@ const h = 50;
 const xoffset = 30;
 const yoffset = 10;
 
-let ball;
-
 let shapes = [];
 
 class Thingimajig {
@@ -60,18 +58,21 @@ function setup() {
   let index = 0;
   canvas.parent("canvas-container");
 
+  const maxCols = floor(width / (w + xoffset));
+  const maxRows = floor(height / (h + yoffset));
+
   background("#0d0c0c");
 
   angleMode(DEGREES);
 
-  //ball = new Bouncer(width / 4, height / 2, ((width / 3) + (height / 3)) / 10, true, ((width / 2) + (height / 2)) / 100)
-
-  for (let x = 0; x < width + w + xoffset; x += w + xoffset) {
-    for (let y = 0; y < height; y += h + yoffset) {
-      shapes.push(new Thingimajig(x, y, index));
-      index++;
+  for (let i = 0; i < maxCols; i++) {
+    for (let j = 0; j < maxRows; j++) {
+      const x = i * (w + xoffset);
+      const y = j * (h + yoffset);
+      shapes.push(new Thingimajig(x, y, index++));
     }
   }
+
 }
 
 function draw() {
@@ -80,8 +81,10 @@ function draw() {
   shapes.forEach((s) => {
     s.tick();
   });
-
-  //ball.tick()
 }
 
-window.addEventListener("resize", setup());
+window.addEventListener("resize", () => {
+  resizeCanvas(windowWidth, 400);
+  shapes = [];
+  setup();
+});

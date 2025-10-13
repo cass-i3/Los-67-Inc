@@ -4,9 +4,8 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '../.env' })
 
-console.log(process.env.EMAIL_API_KEY)
-
-const resend = new Resend('re_GK6KpERn_Nbzb9PGTEwyZxuDw2hknWVdR');
+/*
+const resend = new Resend(process.env.EMAIL_API_KEY);
 
 export async function purchaseMessage({ name, item, address }) {
   resend.emails.send({
@@ -16,3 +15,4 @@ export async function purchaseMessage({ name, item, address }) {
     html: `FROM: ${name}. ITEM: ${item}. SUBMISSION: ${address}`,
   });
 }
+*/

@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #0d0c0c;
+  overflow-x: hidden;
 }
 
 body {
@@ -149,15 +150,25 @@ footer {
   flex-wrap: wrap;
   */
 
-  position: fixed;
+  /*position: fixed;*/
+  /*
   top: 50px;
   left: 200px;
   width: 1000px;
   height: 500px;
-  align-items: center;
-  text-align: center;
-  z-index: 1000;
   max-height: 500px;
+  */
+  position: absolute;
+  top: 5vh;
+  left: 20vw;
+  right: 20vw;
+  /*width: 60vw;*/
+  bottom: 10vh;
+  aspect-ratio: 2 / 1;
+  background: #333;
+  z-index: 1000;
+  text-align: center;
+  /*border: 2px solid white;*/
 
   background-color: rgba(13, 12, 12, 0.9);
   border: 1px solid whitesmoke;
@@ -227,4 +238,14 @@ button {
   background-color: yellow;
   border-left: 6px double black;
   border-right: 6px double black;
+}
+
+.wide-section {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-left: 6px double whitesmoke;
+  border-right: 6px double whitesmoke;
+  display: block;
+  text-align: center;
 }

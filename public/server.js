@@ -3,7 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { purchaseMessage } from '../scripts/email-purchase.js';
+//import { purchaseMessage } from '../scripts/email-purchase.js';
 
 const app = express();
 

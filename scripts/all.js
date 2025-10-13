@@ -1,9 +1,20 @@
 const navbar = document.querySelector('#navbar');
 const main = document.querySelector('#main');
 
-navbar.style.height = window.innerHeight * 0.1 + "px";
+if (navbar) {
+  navbar.style.height = window.innerHeight * 0.1 + "px";
+  navbar.style.width = window.innerWidth * 0.9 + "px";
+}
 
-main.style.height = window.innerHeight - navbar.clientHeight + "px";
+const getNavbarHeight = () => {
+  if (navbar) {
+    return navbar.clientHeight;
+  } else {
+    return 0;
+  }
+}
+
+main.style.height = window.innerHeight - getNavbarHeight() + "px";
 
 const createAlert = (title, message, initial = false) => {
   document.querySelector('#alert-title').innerHTML = title;
@@ -20,7 +31,9 @@ const closeAlert = () => {
 }
 
 window.addEventListener('resize', () => {
-  navbar.style.height = window.innerHeight * 0.1 + "px";
-
-  main.style.height = window.innerHeight - navbar.clientHeight + "px";
+  if (navbar) {
+    navbar.style.height = window.innerHeight * 0.1 + "px";
+  }
+    
+  main.style.height = window.innerHeight - getNavbarHeight() + "px";
 });
