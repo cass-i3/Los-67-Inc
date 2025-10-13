@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <title>Checkout ~ Los 67 Inc.</title>
 
-    <link rel="icon" type="img/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" type="img/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./main.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -61,7 +61,7 @@
       <h2 class="thick-text" id="alert-title"></h2>
       <h2 class="caps-text" id="alert-desc" style="margin-left: 10px; margin-right: 10px;"></h2>
       <div></div>
-      <button class="wide-text" onclick="window.location.href = '../index.html'">OKAY</button>
+      <button class="wide-text" onclick="window.location.href = './index.html'">OKAY</button>
     </div>
     
     <div id="main">
@@ -70,9 +70,11 @@
       <p class="thick-text">You are buying a</p><br />
       <p class="thick-text product" id="itemArt"></p>
       <form title="checkout" method="POST" onsubmit="done()" netlify>
-        <input class="thick-text" id="name" placeholder="Your First and Last Name">
+        <input type="text" name="name" class="thick-text" id="name" placeholder="Your First and Last Name">
         <br />
-        <input class="thick-text" id="address" placeholder="Kiran Hayden's Address">
+        <input type="text" name="address" class="thick-text" id="address" placeholder="Kiran Hayden's Address">
+        <br />
+        <input type="email" name="email" class="thick-text" id="email" placeholder="Your Email">
         <br />
         <button class="wide-text" type="submit">Done</button>
     </form>
@@ -80,7 +82,7 @@
       <p>&nbsp;</p>
     </div>
 
-    <script src="../scripts/all.js"></script>
+    <script src="./scripts/all.js"></script>
     <script>  
       const item = localStorage.getItem('item');
       const itemDisplay = document.querySelector('#itemDisplay');
@@ -102,32 +104,6 @@
       const done = () => {
         createAlert(`Thank you for your purchase of a <br /><span class="thick-text product" style="font-size: 5em; margin-bottom: 0; padding-bottom: 0;">${item}</span>`, `We will review your submission and determine if you are being truthful with your answer. You will recieve a ${item} if we determine you are being truthful.`)
       }
-      
-      const submit = async () => {
-        const name = document.querySelector('#name').value;
-        const address = document.querySelector('#address').value;
-
-        const res = await fetch('./.netlify/functions/send-purchase-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ name, address, item })
-        });
-
-        const data = await res.json();
-        if (data.success) {
-          console.log('Email sent!');
-        } else {
-          console.log('Failed to send email');
-        }
-
-        document.querySelectorAll('.input').forEach((i) => {
-          i.value = '';
-        });
-
-        createAlert(`Thank you for your purchase of a <br /><span class="thick-text product" style="font-size: 5em; margin-bottom: 0; padding-bottom: 0;">${item}</span>`, `We will review your submission and determine if you are being truthful with your answer. You will recieve a ${item} if we determine you are being truthful.`)
-      };
     </script>
   </body>
 </html>
