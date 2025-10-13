@@ -6,4 +6,3 @@
 
 [build]
   functions = ".netlify/functions"
-  publish = "public"
